@@ -1,0 +1,1 @@
+{"version":"1.0.0","commands":{"create":{"id":"create","description":"create an empty starter project","pluginName":"reactscript","pluginType":"core","aliases":[],"examples":["$ reactscript create new-app"],"flags":{"help":{"name":"help","type":"boolean","char":"h","description":"show CLI help","allowNo":false}},"args":[{"name":"project_name"}]}}}
