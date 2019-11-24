@@ -38,7 +38,7 @@
   "files": [
     "/bin",
     "/lib",
-    "/lib/.*",
+    "/lib/templates/create/.*",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
