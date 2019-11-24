@@ -14,7 +14,7 @@ export default class Create extends Command {
     static description = 'create an empty starter project'
 
     static examples = [
-        `$ reactscript create new-app`,
+        `$ reactscript-cli create new-app`,
     ]
 
     static flags = {

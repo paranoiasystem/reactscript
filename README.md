@@ -1,12 +1,12 @@
-reactscript
+reactscript-cli
 ===========
 
-ReactScript 
+ReactScript CLI
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/reactscript.svg)](https://npmjs.org/package/reactscript)
-[![Downloads/week](https://img.shields.io/npm/dw/reactscript.svg)](https://npmjs.org/package/reactscript)
-[![License](https://img.shields.io/npm/l/reactscript.svg)](https://github.com/https://github.com/paranoiasystem/reactscript/reactscript/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/reactscript.svg)](https://npmjs.org/package/reactscript-cli)
+[![Downloads/week](https://img.shields.io/npm/dw/reactscript.svg)](https://npmjs.org/package/reactscript-cli)
+[![License](https://img.shields.io/npm/l/reactscript.svg)](https://github.com/paranoiasystem/reactscript-cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -43,7 +43,7 @@ OPTIONS
   -h, --help  show CLI help
 
 EXAMPLE
-  $ reactscript create new-app
+  $ reactscript-cli create new-app
 ```
 
 _See code: [src/commands/create.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.0.0/src/commands/create.ts)_
