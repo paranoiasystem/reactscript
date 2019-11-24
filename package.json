@@ -1,7 +1,7 @@
 {
   "name": "reactscript-cli",
   "description": "reactscript-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "ParanoiaSystem",
   "bin": {
     "reactscript-cli": "./bin/run"
