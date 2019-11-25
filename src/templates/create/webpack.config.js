@@ -29,7 +29,11 @@ const config = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
+  ],
 };
 
 if (isProd) {
