@@ -29,12 +29,7 @@ const config = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Babel + TypeScript + React = ❤️',
-      template: 'src/index.html',
-    }),
-  ],
+  plugins: [],
 };
 
 if (isProd) {

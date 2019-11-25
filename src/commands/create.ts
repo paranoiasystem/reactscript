@@ -66,6 +66,11 @@ export default class Create extends Command {
                 compilerOption: { 'project_name' : project_name }
             },
             {
+                sourceFile: 'src/index.html.hbs',
+                compiledFile: 'src/index.html',
+                compilerOption: { 'project_name' : project_name }
+            },
+            {
                 sourceFile: 'src/components/App/App.tsx.hbs',
                 compiledFile: 'src/components/App/App.tsx',
                 compilerOption: { 'project_name' : project_name }
