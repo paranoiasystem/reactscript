@@ -43,9 +43,10 @@ export default class Create extends Command {
     }
 
     copyTemplate(project_name: string) {
+        const baseProjectPath = Shell.pwd().toString() + `/${project_name}`
         Shell.cp('-R', path.join(__dirname, '../templates/create/*'), project_name)
-        Shell.cp('-R', path.join(__dirname, '../templates/create/.gitignore'), project_name)
-        Shell.cp('-R', path.join(__dirname, '../templates/create/.babelrc'), project_name)
+        Shell.mv('-f', `${baseProjectPath}/gitignore`, `${baseProjectPath}/.gitignore`)
+        Shell.mv('-f', `${baseProjectPath}/babelrc`, `${baseProjectPath}/.babelrc`)
     }
 
     installDependency(project_name: string) {
