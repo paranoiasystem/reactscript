@@ -19,7 +19,7 @@ $ npm install -g reactscript-cli
 $ reactscript-cli COMMAND
 running command...
 $ reactscript-cli (-v|--version|version)
-reactscript-cli/1.1.0 linux-x64 node-v10.15.2
+reactscript-cli/1.1.1 linux-x64 node-v10.15.2
 $ reactscript-cli --help [COMMAND]
 USAGE
   $ reactscript-cli COMMAND
@@ -48,7 +48,7 @@ EXAMPLE
   $ reactscript-cli component testComponent
 ```
 
-_See code: [src/commands/component.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.1.0/src/commands/component.ts)_
+_See code: [src/commands/component.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.1.1/src/commands/component.ts)_
 
 ## `reactscript-cli create [PROJECTNAME]`
 
@@ -65,7 +65,7 @@ EXAMPLE
   $ reactscript-cli create new-app
 ```
 
-_See code: [src/commands/create.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.1.0/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.1.1/src/commands/create.ts)_
 
 ## `reactscript-cli help [COMMAND]`
 
