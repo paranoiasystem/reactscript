@@ -64,7 +64,7 @@ export default class Create extends Command {
         if (projectName) {
             // create folder
             Utils.CreateFolder(projectName)
-            // copy file
+            // copy template file
             Utils.CopyTemplate(projectName, 'create')
             // move hidden file
             hiddenFiles.map(hiddenFile => Utils.MoveFile(projectName, hiddenFile.source, hiddenFile.destination))
