@@ -28,16 +28,35 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`reactscript-cli create [PROJECT_NAME]`](#reactscript-cli-create-project_name)
+* [`reactscript-cli component [COMPONENTNAME]`](#reactscript-cli-component-componentname)
+* [`reactscript-cli create [PROJECTNAME]`](#reactscript-cli-create-projectname)
 * [`reactscript-cli help [COMMAND]`](#reactscript-cli-help-command)
 
-## `reactscript-cli create [PROJECT_NAME]`
+## `reactscript-cli component [COMPONENTNAME]`
+
+create an empty component
+
+```
+USAGE
+  $ reactscript-cli component [COMPONENTNAME]
+
+OPTIONS
+  -h, --help       show CLI help
+  -t, --type=type
+
+EXAMPLE
+  $ reactscript-cli component testComponent
+```
+
+_See code: [src/commands/component.ts](https://github.com/paranoiasystem/reactscript-cli/blob/v1.1.0/src/commands/component.ts)_
+
+## `reactscript-cli create [PROJECTNAME]`
 
 create an empty starter project
 
 ```
 USAGE
-  $ reactscript-cli create [PROJECT_NAME]
+  $ reactscript-cli create [PROJECTNAME]
 
 OPTIONS
   -h, --help  show CLI help
