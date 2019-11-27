@@ -1,13 +1,10 @@
 import {Command, flags} from '@oclif/command'
-import * as fs from 'fs'
-import * as path from 'path'
-import * as Handlebars from 'handlebars'
-import * as Shell from 'shelljs'
+import CompilerDirective from '../Utils/CompilerDirective'
+import { Utils } from '../Utils/Utils'
 
-interface compilerDirective {
-    sourceFile: string
-    compiledFile: string
-    compilerOption: any
+interface HiddenFile {
+    source: string
+    destination: string
 }
 
 export default class Create extends Command {
@@ -23,69 +20,58 @@ export default class Create extends Command {
 
     static args = [
         {
-            name: 'project_name'
+            name: 'projectName'
         }
     ]
-
-    compileTemplate(data: compilerDirective) {
-        const { sourceFile, compiledFile, compilerOption } = data
-        const source = fs.readFileSync(Shell.pwd().toString() + `/${compilerOption.project_name}/${sourceFile}`, 'utf-8')
-        const template = Handlebars.compile(source)
- 
-        const result = template(compilerOption)
-
-        fs.writeFileSync(Shell.pwd().toString() + `/${compilerOption.project_name}/${compiledFile}`, result)
-        Shell.rm(Shell.pwd().toString() + `/${compilerOption.project_name}/${sourceFile}`)
-    }
-
-    createFolder(project_name: string) {
-        Shell.mkdir(project_name)
-    }
-
-    copyTemplate(project_name: string) {
-        const baseProjectPath = Shell.pwd().toString() + `/${project_name}`
-        Shell.cp('-R', path.join(__dirname, '../templates/create/*'), project_name)
-        Shell.mv('-f', `${baseProjectPath}/gitignore`, `${baseProjectPath}/.gitignore`)
-        Shell.mv('-f', `${baseProjectPath}/babelrc`, `${baseProjectPath}/.babelrc`)
-    }
-
-    installDependency(project_name: string) {
-        Shell.cd(project_name)
-        Shell.exec('npm i')
-    }
 
     async run() {
         const {args} = this.parse(Create)
 
-        const project_name = args.project_name
+        const projectName = args.projectName
 
-        const fileToCompile: compilerDirective[] = [
+        const fileToCompile: CompilerDirective[] = [
             {
                 sourceFile: 'package.json.hbs',
                 compiledFile: 'package.json',
-                compilerOption: { 'project_name' : project_name }
+                filePath: projectName,
+                compilerData: { 'projectName' : projectName }
             },
             {
                 sourceFile: 'src/index.html.hbs',
                 compiledFile: 'src/index.html',
-                compilerOption: { 'project_name' : project_name }
+                filePath: projectName,
+                compilerData: { 'projectName' : projectName }
             },
             {
                 sourceFile: 'src/components/App/App.tsx.hbs',
                 compiledFile: 'src/components/App/App.tsx',
-                compilerOption: { 'project_name' : project_name }
+                filePath: projectName,
+                compilerData: { 'projectName' : projectName }
             }
         ]
 
-        if (project_name) {
+        const hiddenFiles: HiddenFile[] = [
+            {
+                source: 'gitignore',
+                destination:'.gitignore'
+            },
+            {
+                source: 'babelrc',
+                destination:'.babelrc'
+            }
+        ]
+
+        if (projectName) {
             // create folder
-            this.createFolder(project_name)
+            Utils.CreateFolder(projectName)
             // copy file
-            this.copyTemplate(project_name)
+            Utils.CopyTemplate(projectName, 'create')
+            // move hidden file
+            hiddenFiles.map(hiddenFile => Utils.MoveFile(projectName, hiddenFile.source, hiddenFile.destination))
             // compile template
-            fileToCompile.map(data => this.compileTemplate(data))
+            Utils.CompileTemplate(fileToCompile)
             // install dependency
-            this.installDependency(project_name)            
+            Utils.ExecNpmCommand(projectName, 'install')            
         } else {
             await Create.run(['--help'])
         }        
